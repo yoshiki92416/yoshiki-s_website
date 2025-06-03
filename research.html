@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research - Yoshiki Takeuchi</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #6B46C1;
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      position: relative;
+    }
+    .navbar a:hover::after,
+    .navbar a.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, #6B46C1, #4C51BF);
+    }
+    .research-page {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #3b27e3, #e20088);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 2rem;
+    }
+    .research-card {
+      display: flex;
+      gap: 2rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+      align-items: flex-start;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .research-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+    .research-content {
+      flex: 1;
+    }
+    .research-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .research-authors {
+      font-style: italic;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    .research-description {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .research-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .research-buttons a {
+      background: linear-gradient(to right, #3b27e3, #e20088);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .research-buttons a:hover {
+      transform: scale(1.05);
+    }
+    .research-image {
+      width: 250px;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Yoshiki Takeuchi</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="research-page">
+    <h1 class="section-title">Research</h1>
+
+    <div class="research-card">
+      <div class="research-content">
+        <h2 class="research-title">Methods For Securing Commercial Dies In Silicon Substrates For Heterogenous Integration</h2>
+        <p class="research-authors">Advisor: Zhihong Chen, Peter Bermel | Purdue University Brick Nano Technology Center</p>
+        <p class="research-description">Our research project aims to prototype and refine specialized 2.5D Heterogeneous Integration (HI) processes for embedding millimeter-level modular commercial chiplets, specifically d-latch memory microchips and photodiodes, onto a silicon-based interposer for low-earth orbit satellite system applications. We utilize the unique material characteristics of silicon and the advantages of 2.5D HI to optimize our system in reducing interconnect lengths, lowering power consumption, and improving signal integrity. The process flow starts with building a foundation layer by pattern-etching of the carrier substrate, depositing the gaps with a seed layer of copper and growing the metal through electroplating to secure the chiplets, and depositing an extra insulation layer to protect the foundation layer. Following, we build an interconnect layer by depositing photoresist and copper, patterning connections, metallizing traces, and performing a final lift-off to establish connection pins. Through extensive prototyping, efficient identifying and solving of challenges, and optimizations made to increase fabrication speeds, surface cleanliness and evenness, we aim to provide satellite manufacturers with a reliable and cost-effective 2.5D packaging solution for space electronics, contributing to consistent and efficient space endeavors.</p>
+        <div class="research-buttons">
+          <a href="Spr25_APHI-Si_BNC200.pdf" target="_blank">📄 View Process Flow</a>
+          <a href="Poster SP25 APHI-Si.pdf" target="_blank">🖼 View Poster 1</a>
+          <a href="APHI_Poster.pdf" target="_blank">🖼 View Poster 2</a>
+          <!-- <a href="[presentation link]" target="_blank">📽 Watch Presentation</a> -->
+        </div>
+      </div>
+      <img src="wafer.jpg" alt="Research Image" class="research-image">
+    </div>
+
+    <!-- Add more research cards here -->
+
+  </main>
+</body>
+</html>
