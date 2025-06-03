@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Yoshiki Takeuchi</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #6B46C1;
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      position: relative;
+    }
+    .navbar a:hover::after,
+    .navbar a.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, #6B46C1, #4C51BF);
+    }
+    .project-page {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #3b27e3, #e20088);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 2rem;
+    }
+    .project-card {
+      display: flex;
+      gap: 2rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+      align-items: flex-start;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+    .project-content {
+      flex: 1;
+    }
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .project-skills {
+      color: #444;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+    .project-note {
+      font-style: italic;
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.75rem;
+    }
+    .project-description {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .project-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .project-buttons a {
+      background: linear-gradient(to right, #3b27e3, #e20088);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .project-buttons a:hover {
+      transform: scale(1.05);
+    }
+    .project-image {
+      width: 250px;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Yoshiki Takeuchi</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="project-page">
+    <h1 class="section-title">Projects</h1>
+
+    <!-- Existing Project -->
+    <div class="project-card">
+      <div class="project-content">
+        <h2 class="project-title">Multichannel EEG-Based Brain-Computer Interface for Real-Time Control</h2>
+        <p class="project-skills">Relevant Skills: Schematic & PCB design, Microprocessor</p>
+        <p class="project-note">Purdue University ECE49022 Senior Design</p>
+        <p class="project-description">Develop a brain-computer interface (BCI) using EEG to assist individuals with physical disabilities. Electrodes capture brain voltage fluctuations, a microcontroller processes signals, and algorithms translate sensory-motor activity into computer control, enabling hands-free device interaction for enhanced accessibility and independence.</p>
+        <div class="project-buttons">
+          <a href="Final Design Review.pdf" target="_blank">📽 View Presentation & Demo</a>
+          <a href="Design_Document_Team11.pdf" target="_blank">🖼 View Report</a>
+        </div>
+      </div>
+      <img src="EEG_Pic.png" alt="EEG System Design" class="project-image">
+    </div>
+    <div class="project-card">
+        <div class="project-content">
+          <h2 class="project-title">Data Science Project in Python</h2>
+          <p class="project-skills">Relevant Skills: Python, Data Science</p>
+          <p class="project-note">Purdue University ECE20875</p>
+          <p class="project-description">I imported, cleaned, and analyzed a dataset containing over 100,000 records using Python libraries such as Pandas, NumPy, and Matplotlib. The analysis focused on bike traffic data across four bridges in NYC, incorporating weather data (temperature and precipitation) to study its impact on cyclist populations. I conducted a linear regression analysis to determine the relationship between weather conditions and bike traffic and developed visualizations to identify traffic trends.​</p>
+          <div class="project-buttons">
+            <!-- <a href="Final Design Review.pdf" target="_blank">📽 View Presentation & Demo</a> -->
+            <!-- <a href="https://example.com/poster.png" target="_blank">🖼 View Poster</a> -->
+            <!-- <a href="https://example.com/demo-video" target="_blank">🎥 Watch Demo</a> -->
+            <!-- <a href="https://github.com/username/project" target="_blank">💻 View on GitHub</a> -->
+          </div>
+        </div>
+        <!-- <img src="EEG_Pic.png" alt="Safeways Project Screenshot" class="project-image"> -->
+      </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h2 class="project-title">Four-Switch DCDC Circuit Controller Design</h2>
+          <p class="project-skills">Relevant Skills: Microproessor, Firmware code</p>
+          <p class="project-note">Purdue University ECE36200</p>
+          <p class="project-description">I collaborated with a team of three colleagues to develop a controller for a four-switch DC-DC circuit. This controller effectively reduced excessive voltage (24V) to a suitable range (0V to 12V) while minimizing power loss. I implemented a keypad input system to allow for dynamic voltage target adjustments, incorporating default value settings and error handling displayed on an OLED screen. Additionally, I programmed and controlled the system using an STM32 microcontroller, utilizing multiple timer interrupts to achieve advanced functionality and precise duty cycle adjustments.​</p>
+          <div class="project-buttons">
+            <!-- <a href="Final Design Review.pdf" target="_blank">📽 View Presentation & Demo</a> -->
+            <!-- <a href="https://example.com/poster.png" target="_blank">🖼 View Poster</a> -->
+            <!-- <a href="https://example.com/demo-video" target="_blank">🎥 Watch Demo</a> -->
+            <!-- <a href="https://github.com/username/project" target="_blank">💻 View on GitHub</a> -->
+          </div>
+        </div>
+        <!-- <img src="EEG_Pic.png" alt="Safeways Project Screenshot" class="project-image"> -->
+      </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h2 class="project-title">Lunar Lander Computer System on FPGA</h2>
+          <p class="project-skills">Relevant Skills: SystemVerilog, Field-Programmable Gate Arrays (FPGA), Digital System Design</p>
+          <p class="project-note">Purdue University ECE27000</p>
+          <p class="project-description">Developed a basic Lunar Lander computing system utilizing the ICE40HX-8K FPGA, showcasing pertinent aerospace metrics for spacecraft landing such as altitude, velocity, fuel, and thrust. Users have manual control over the display mode, like altitude, and spacecraft thrust, influencing the successful landing. Utilized SystemVerilog (& Verilator) to implement ALU, Memory, and Control modules, culminating in the project's completion. ​</p>
+          <div class="project-buttons">
+            <!-- <a href="Final Design Review.pdf" target="_blank">📽 View Presentation & Demo</a> -->
+            <!-- <a href="https://example.com/poster.png" target="_blank">🖼 View Poster</a> -->
+            <!-- <a href="https://example.com/demo-video" target="_blank">🎥 Watch Demo</a> -->
+            <!-- <a href="https://github.com/username/project" target="_blank">💻 View on GitHub</a> -->
+          </div>
+        </div>
+        <!-- <img src="EEG_Pic.png" alt="Safeways Project Screenshot" class="project-image"> -->
+      </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h2 class="project-title">Audio Equalizer</h2>
+          <p class="project-skills">Relevant Skills: Oscilloscopes, Power Supplies, Digital Multimeters, LTSpice</p>
+          <p class="project-note">Purdue University ECE20007</p>
+          <p class="project-description">I designed an audio equalizer circuit that allows users to adjust volume across different frequency bands for a customized sound signature. This involved the implementation of low pass, band pass, and high pass frequency filters, as well as inverting operational amplifiers. ​</p>
+          <div class="project-buttons">
+            <!-- <a href="Final Design Review.pdf" target="_blank">📽 View Presentation & Demo</a> -->
+            <!-- <a href="https://example.com/poster.png" target="_blank">🖼 View Poster</a> -->
+            <!-- <a href="https://example.com/demo-video" target="_blank">🎥 Watch Demo</a> -->
+            <!-- <a href="https://github.com/username/project" target="_blank">💻 View on GitHub</a> -->
+          </div>
+        </div>
+        <!-- <img src="EEG_Pic.png" alt="Safeways Project Screenshot" class="project-image"> -->
+      </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h2 class="project-title">Optical Heart Rate Sensor Design</h2>
+          <p class="project-skills">Relevant Skills: Analog-to-Digital Conversion, Active Filter </p>
+          <p class="project-note">Purdue University ECE20008</p>
+          <p class="project-description">I developed a signal processing system for monitoring heart rates by cascading high-pass and low-pass active filters to effectively filter and amplify millivolt-range signals generated by a sensor. The system incorporates an analog-to-digital converter (ADC) subsystem utilizing a comparator circuit to convert the amplified heartbeat signal into a binary output. An LED indicator was integrated to provide real-time visual feedback of detected heartbeats. The design successfully meets specifications, accurately monitoring heart rates from 40 BPM to 200 BPM, with a digital output voltage ranging between -5V and +5V. ​</p>
+          <div class="project-buttons">
+            <!-- <a href="Final Design Review.pdf" target="_blank">📽 View Presentation & Demo</a> -->
+            <!-- <a href="https://example.com/poster.png" target="_blank">🖼 View Poster</a> -->
+            <!-- <a href="https://example.com/demo-video" target="_blank">🎥 Watch Demo</a> -->
+            <!-- <a href="https://github.com/username/project" target="_blank">💻 View on GitHub</a> -->
+          </div>
+        </div>
+        <!-- <img src="EEG_Pic.png" alt="Safeways Project Screenshot" class="project-image"> -->
+      </div>
+
+
+    <!-- Add your additional projects here as more project-card blocks following the format above -->
+
+  </main>
+</body>
+</html>
