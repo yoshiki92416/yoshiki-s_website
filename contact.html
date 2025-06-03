@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Yoshiki Takeuchi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background-color: #fff;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    }
+    .navbar .logo {
+      color: #6B46C1;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .navbar a:hover {
+      color: #6B46C1;
+    }
+    .navbar a.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, #6B46C1, #4C51BF);
+    }
+    .contact-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      background: linear-gradient(to bottom right, #ffffff, #f4f5f7);
+      padding: 3rem;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+    .contact-container img {
+      width: 50px;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+    .contact-container img:hover {
+      transform: scale(1.1);
+    }
+    .contact-container h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #6B46C1;
+      margin-bottom: 0.5rem;
+    }
+    .contact-container p.subtitle {
+      color: #666;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+    .contact-container form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    input, textarea {
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+      font-family: inherit;
+      background-color: #fff;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #6B46C1;
+      box-shadow: 0 0 8px rgba(107, 70, 193, 0.2);
+    }
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+    .submit-btn {
+      background: linear-gradient(to right, #6B46C1, #4C51BF);
+      color: white;
+      padding: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(107, 70, 193, 0.3);
+    }
+    .success-message {
+      display: none;
+      color: #2ecc71;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 3rem auto 5rem;
+      flex-wrap: wrap;
+    }
+    .info-box {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      width: 220px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .info-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    .info-box h4 {
+      margin-bottom: 0.5rem;
+      color: #6B46C1;
+    }
+    .info-box a, .info-box p {
+      text-decoration: none;
+      color: #3b27e3;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+    .info-box a:hover {
+      color: #6B46C1;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Yoshiki Takeuchi</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="resume.html" class="nav-link">Resume</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="research.html" class="nav-link">Research</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="contact-container">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Icon">
+      <h2>Get in Touch</h2>
+      <p class="subtitle">Let's Collaborate and Innovate!</p>
+      <form id="contact-form">
+        <input type="text" name="Full Name" placeholder="Full name" required>
+        <input type="email" name="Email" placeholder="Email address" required>
+        <input type="tel" name="Phone" placeholder="Phone number">
+        <textarea name="Message" placeholder="Message" required></textarea>
+        <button type="submit" class="submit-btn">Submit</button>
+        <p class="success-message">Message sent successfully!</p>
+      </form>
+    </div>
+
+    <div class="contact-info">
+      <div class="info-box">
+        <h4>LinkedIn</h4>
+        <a href="https://www.linkedin.com/in/yoshiki-takeuchi-6a8500245" target="_blank">My LinkedIn</a>
+      </div>
+      <div class="info-box">
+        <h4>Email</h4>
+        <a href="mailto:ytakeuch92416@gmail.com">ytakeuch92416@gmail.com</a><br>
+        <a href="mailto:ytakeuch@purdue.edu">ytakeuch@purdue.edu</a><br>
+        <a href="mailto:ytakeuch@tamu.edu">ytakeuch@tamu.edu</a>
+      </div>
+      <div class="info-box">
+        <h4>Phone</h4>
+        <p>(312)-366-6646</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Navbar active link
+    const currentPath = window.location.pathname.split("/").pop();
+    document.querySelectorAll(".nav-link").forEach(link => {
+      if (link.getAttribute("href") === currentPath) {
+        link.classList.add("active");
+      }
+    });
+
+    // Form submission feedback
+    const form = document.getElementById('contact-form');
+    const successMessage = document.querySelector('.success-message');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      successMessage.style.display = 'block';
+      form.reset();
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
