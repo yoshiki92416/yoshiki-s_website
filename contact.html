@@ -4,164 +4,226 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Yoshiki Takeuchi</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body { font-family: 'DM Sans', sans-serif; background-color: #f9f9f9; color: #333; }
+
+    /* ── Navbar ── */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1.5rem 3rem;
       background-color: #fff;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    .navbar .logo {
-      color: #6B46C1;
-      font-weight: 700;
-      font-size: 1.3rem;
-    }
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      margin: 0;
-      padding: 0;
-    }
-    .navbar a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      position: relative;
-      transition: color 0.3s ease;
-    }
-    .navbar a:hover {
-      color: #6B46C1;
-    }
-    .navbar a.active::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      width: 100%;
-      height: 2px;
+    .navbar .logo { color: #6B46C1; font-weight: 700; font-size: 1.3rem; }
+    .navbar ul { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
+    .navbar a { text-decoration: none; color: #333; font-weight: 500; position: relative; transition: color 0.3s ease; }
+    .navbar a:hover { color: #6B46C1; }
+    .navbar a::after {
+      content: ''; position: absolute;
+      left: 0; bottom: -5px; width: 0; height: 2px;
       background: linear-gradient(to right, #6B46C1, #4C51BF);
+      transition: width 0.25s ease;
     }
-    .contact-container {
-      max-width: 800px;
-      margin: 3rem auto;
-      background: linear-gradient(to bottom right, #ffffff, #f4f5f7);
-      padding: 3rem;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    }
-    .contact-container img {
-      width: 50px;
-      margin-bottom: 1rem;
-      transition: transform 0.3s ease;
-    }
-    .contact-container img:hover {
-      transform: scale(1.1);
-    }
-    .contact-container h2 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: #6B46C1;
-      margin-bottom: 0.5rem;
-    }
-    .contact-container p.subtitle {
-      color: #666;
-      margin-bottom: 2rem;
-      font-size: 1.1rem;
-    }
-    .contact-container form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-    input, textarea {
-      padding: 1rem;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      font-size: 1rem;
-      font-family: inherit;
-      background-color: #fff;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #6B46C1;
-      box-shadow: 0 0 8px rgba(107, 70, 193, 0.2);
-    }
-    textarea {
-      resize: vertical;
-      min-height: 140px;
-    }
-    .submit-btn {
-      background: linear-gradient(to right, #6B46C1, #4C51BF);
-      color: white;
-      padding: 1rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(107, 70, 193, 0.3);
-    }
-    .success-message {
+    .navbar a:hover::after, .navbar a.active::after { width: 100%; }
+
+    /* Hamburger */
+    .nav-toggle {
       display: none;
-      color: #2ecc71;
-      font-weight: 600;
-      margin-top: 1rem;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
     }
-    .contact-info {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 3rem auto 5rem;
-      flex-wrap: wrap;
+    .nav-toggle span {
+      display: block; width: 24px; height: 2px;
+      background: #333; border-radius: 2px; transition: all 0.3s ease;
     }
-    .info-box {
-      background-color: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      width: 220px;
+
+    /* ── Hero ── */
+    .contact-hero {
+      background: linear-gradient(135deg, #6B46C1 0%, #4C51BF 100%);
+      padding: 4rem 3rem 3rem;
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
-    .info-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    .contact-hero::before {
+      content: ''; position: absolute;
+      top: -60px; right: -60px; width: 300px; height: 300px;
+      background: rgba(255,255,255,0.06); border-radius: 50%;
     }
-    .info-box h4 {
-      margin-bottom: 0.5rem;
-      color: #6B46C1;
+    .contact-hero::after {
+      content: ''; position: absolute;
+      bottom: -80px; left: -40px; width: 250px; height: 250px;
+      background: rgba(255,255,255,0.04); border-radius: 50%;
     }
-    .info-box a, .info-box p {
-      text-decoration: none;
-      color: #3b27e3;
-      font-size: 0.95rem;
-      transition: color 0.3s ease;
+    .contact-hero h1 { font-size: 2.8rem; font-weight: 800; color: #fff; margin-bottom: 0.75rem; }
+    .contact-hero p { color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 480px; margin: 0 auto; }
+
+    /* ── Body layout ── */
+    .contact-body {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 2.5rem;
+      align-items: start;
     }
-    .info-box a:hover {
-      color: #6B46C1;
+
+    /* ── Left ── */
+    .contact-left h2 { font-size: 1.4rem; font-weight: 700; color: #6B46C1; margin-bottom: 1.5rem; }
+
+    .contact-card {
+      background: #fff; border-radius: 14px; padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      display: flex; align-items: center; gap: 1rem;
+      text-decoration: none; color: inherit;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      border-left: 4px solid transparent;
+    }
+    .contact-card:hover {
+      transform: translateX(6px);
+      box-shadow: 0 8px 20px rgba(107,70,193,0.12);
+      border-left-color: #6B46C1;
+    }
+    .contact-card .icon {
+      font-size: 1.6rem; width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      background: #f0ebff; border-radius: 10px; flex-shrink: 0;
+    }
+    .contact-card .card-info strong {
+      display: block; font-size: 0.8rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em; color: #999; margin-bottom: 0.2rem;
+    }
+    .contact-card .card-info span { font-size: 0.95rem; color: #333; font-weight: 500; }
+
+    .availability {
+      background: #fff; border-radius: 14px; padding: 1.25rem 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-top: 1.5rem;
+    }
+    .availability h3 {
+      font-size: 0.85rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: #999; margin-bottom: 1rem;
+    }
+    .status-dot {
+      display: inline-block; width: 9px; height: 9px;
+      border-radius: 50%; background: #22c55e; margin-right: 0.5rem;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+      50%       { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+    }
+    .status-text { font-size: 0.95rem; font-weight: 600; color: #333; }
+    .availability p.note { font-size: 0.85rem; color: #888; margin-top: 0.5rem; }
+
+    /* ── Right: form ── */
+    .contact-right {
+      background: #fff; border-radius: 18px; padding: 2.25rem;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+    }
+    .contact-right h2 { font-size: 1.4rem; font-weight: 700; color: #6B46C1; margin-bottom: 0.4rem; }
+    .contact-right p.form-sub { font-size: 0.9rem; color: #888; margin-bottom: 1.75rem; }
+
+    .form-group { margin-bottom: 1.1rem; }
+    .form-group label {
+      display: block; font-size: 0.82rem; font-weight: 600; color: #555;
+      margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; padding: 0.85rem 1rem; border: 1.5px solid #e5e5e5;
+      border-radius: 10px; font-size: 0.95rem; font-family: 'DM Sans', sans-serif;
+      color: #333; background: #fafafa;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      outline: none; border-color: #6B46C1; background: #fff;
+      box-shadow: 0 0 0 3px rgba(107,70,193,0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .submit-btn {
+      width: 100%; padding: 1rem;
+      background: linear-gradient(to right, #6B46C1, #4C51BF);
+      color: white; font-size: 1rem; font-weight: 700;
+      font-family: 'DM Sans', sans-serif; border: none;
+      border-radius: 10px; cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease; margin-top: 0.5rem;
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(107,70,193,0.3); }
+    .submit-btn:active { transform: translateY(0); }
+
+    .success-banner {
+      display: none; background: #f0fdf4; border: 1.5px solid #86efac;
+      border-radius: 10px; padding: 1rem 1.25rem; margin-top: 1rem;
+      text-align: center; color: #16a34a; font-weight: 600; font-size: 0.95rem;
+    }
+
+    /* ── Reveal ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── Tablet ── */
+    @media (max-width: 900px) {
+      .contact-body { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 1.5rem 4rem; }
+      .contact-hero h1 { font-size: 2.2rem; }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 600px) {
+      .navbar { padding: 1rem 1.5rem; }
+      .nav-toggle { display: flex; }
+      .navbar nav {
+        display: none; position: absolute;
+        top: 64px; left: 0; right: 0;
+        background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        padding: 1rem 0; z-index: 99;
+      }
+      .navbar nav.open { display: block; }
+      .navbar ul { flex-direction: column; gap: 0; align-items: center; }
+      .navbar ul li { width: 100%; text-align: center; }
+      .navbar a { display: block; padding: 0.85rem 1rem; font-size: 1rem; }
+
+      .contact-hero { padding: 2.5rem 1.25rem 2rem; }
+      .contact-hero h1 { font-size: 1.9rem; }
+      .contact-hero p { font-size: 0.95rem; }
+      .contact-body { padding: 1.5rem 1rem 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-right { padding: 1.5rem; }
+    }
+
+    /* ── Landscape phone ── */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .contact-hero { padding: 1.5rem 2rem; }
+      .contact-hero h1 { font-size: 1.8rem; margin-bottom: 0.4rem; }
+      .contact-body { padding: 1.5rem 2rem 3rem; }
     }
   </style>
 </head>
 <body>
+
   <header class="navbar">
     <div class="logo">Yoshiki Takeuchi</div>
-    <nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="main-nav">
       <ul>
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li><a href="resume.html" class="nav-link">Resume</a></li>
@@ -172,58 +234,90 @@
     </nav>
   </header>
 
-  <main>
-    <!-- <div class="contact-container">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Icon">
-      <h2>Get in Touch</h2>
-      <p class="subtitle">Let's Collaborate and Innovate!</p>
-      <form id="contact-form">
-        <input type="text" name="Full Name" placeholder="Full name" required>
-        <input type="email" name="Email" placeholder="Email address" required>
-        <input type="tel" name="Phone" placeholder="Phone number">
-        <textarea name="Message" placeholder="Message" required></textarea>
-        <button type="submit" class="submit-btn">Submit</button>
-        <p class="success-message">Message sent successfully!</p>
-      </form>
-    </div> -->
-    
-    <div class="contact-info">
-      <div class="info-box">
-        <h4>LinkedIn</h4>
-        <a href="https://www.linkedin.com/in/yoshiki-takeuchi-6a8500245" target="_blank">My LinkedIn</a>
-      </div>
-      <div class="info-box">
-        <h4>Email</h4>
-        <a href="mailto:ytakeuch92416@gmail.com">ytakeuch92416@gmail.com</a><br>
-        <a href="mailto:ytakeuch@purdue.edu">ytakeuch@purdue.edu</a><br>
-      </div>
-      <div class="info-box">
-        <h4>Phone</h4>
-        <p>(312)-366-6646</p>
+  <div class="contact-hero">
+    <h1>Let's Connect 👋</h1>
+    <p>Whether it's a job opportunity, research collaboration, or just a hello — I'd love to hear from you.</p>
+    <p id="contact-greeting" style="margin-top:0.75rem; font-size:0.95rem; color:rgba(255,255,255,0.7); font-style:italic;"></p>
+    <p id="visitor-time" style="margin-top:0.25rem; font-size:0.85rem; color:rgba(255,255,255,0.5);"></p>
+  </div>
+
+  <div class="contact-body">
+
+    <div class="contact-left">
+      <h2>Find me here</h2>
+
+      <a href="https://www.linkedin.com/in/yoshiki-takeuchi-6a8500245" target="_blank" class="contact-card reveal">
+        <div class="icon">💼</div>
+        <div class="card-info"><strong>LinkedIn</strong><span>Yoshiki Takeuchi</span></div>
+      </a>
+
+      <a href="/cdn-cgi/l/email-protection#057c71646e6070666d3c37313433456268646c692b666a68" class="contact-card reveal reveal-delay-1">
+        <div class="icon">✉️</div>
+        <div class="card-info"><strong>Personal Email</strong><span><span class="__cf_email__" data-cfemail="641d10050f0111070c5d56505552240309050d084a070b09">[email&#160;protected]</span></span></div>
+      </a>
+
+      <a href="/cdn-cgi/l/email-protection#7f060b1e141a0a1c173f0f0a0d1b0a1a511a1b0a" class="contact-card reveal reveal-delay-2">
+        <div class="icon">🎓</div>
+        <div class="card-info"><strong>University Email</strong><span><span class="__cf_email__" data-cfemail="29505d48424c5c4a4169595c5b4d5c4c074c4d5c">[email&#160;protected]</span></span></div>
+      </a>
+
+      <a href="tel:3123666646" class="contact-card reveal reveal-delay-3">
+        <div class="icon">📞</div>
+        <div class="card-info"><strong>Phone</strong><span>(312) 366-6646</span></div>
+      </a>
+
+      <div class="availability reveal">
+        <h3>Current Status</h3>
+        <div><span class="status-dot"></span><span class="status-text">Open to opportunities</span></div>
+        <p class="note">Actively looking for full-time roles & research collaborations starting 2025.</p>
       </div>
     </div>
-  </main>
 
-  <script>
-    // Navbar active link
-    const currentPath = window.location.pathname.split("/").pop();
-    document.querySelectorAll(".nav-link").forEach(link => {
-      if (link.getAttribute("href") === currentPath) {
-        link.classList.add("active");
-      }
-    });
+    <div class="contact-right reveal">
+      <h2>Send a Message</h2>
+      <p class="form-sub">I typically respond within 24–48 hours.</p>
 
-    // Form submission feedback
-    const form = document.getElementById('contact-form');
-    const successMessage = document.querySelector('.success-message');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      successMessage.style.display = 'block';
-      form.reset();
-      setTimeout(() => {
-        successMessage.style.display = 'none';
-      }, 3000);
-    });
-  </script>
+      <form id="contact-form" action="https://formspree.io/f/myknqdwn" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="reason">Reason for Contact</label>
+          <select id="reason" name="reason">
+            <option value="">Select a reason...</option>
+            <option value="job">Job Opportunity</option>
+            <option value="internship">Internship</option>
+            <option value="research">Research Collaboration</option>
+            <option value="project">Project Inquiry</option>
+            <option value="other">Just Saying Hi</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="What's this about?">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Hi Yoshiki, I wanted to reach out about..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Send Message →</button>
+        <div class="success-banner" id="success-banner">✅ Message received! I'll get back to you soon.</div>
+      </form>
+    </div>
+
+  </div>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

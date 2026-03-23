@@ -5,421 +5,453 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resume - Yoshiki Takeuchi</title>
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       background-color: #f5f5f5;
       margin: 0;
       padding: 0;
       color: #333;
     }
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 3rem;
-      background-color: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    }
-    .logo {
-      font-weight: 700;
-      font-size: 1.3rem;
-      color: grey;
-    }
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      margin: 0;
-      padding: 0;
-    }
-    .navbar a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      position: relative;
-    }
-    .navbar a:hover::after,
-    .navbar a.active::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(to right, #6B46C1, #4C51BF);
-    }
+
+    /* ── Navbar overrides to match other pages ── */
+    .navbar .logo { color: #6B46C1; font-size: 1.3rem; }
+    .navbar a::after { background: linear-gradient(to right, #6B46C1, #4C51BF); }
+
+    /* ── Page wrapper ── */
     .resume-page {
       max-width: 1100px;
       margin: 3rem auto;
       padding: 0 2rem;
     }
+
+    /* ── Header row ── */
     .resume-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
     }
-    .gradient-text {
-        font-size: 2.5rem;
+
+    .gradient-text { font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
       font-weight: 800;
       background: linear-gradient(to right, #3b27e3, #e20088);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 2rem;
+      margin: 0;
     }
 
-    .btn-primary {
-        background-color: #4B2ED8;
+    .btn-download {
+      background-color: #4B2ED8;
       color: white;
       padding: 0.75rem 1.5rem;
       border-radius: 10px;
       text-decoration: none;
       font-weight: 600;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      white-space: nowrap;
     }
-    .btn-primary:hover {
-        transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+    .btn-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
     }
-    .resume-section {
-      margin-top: 3rem;
-    }
-    .section-title {
+
+    /* ── Section titles ── */
+    .resume-section { margin-top: 3rem; }
+
+    .section-title { font-family: 'DM Serif Display', serif;
       font-size: 1.5rem;
       font-weight: 700;
       color: #007BFF;
       margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e8e8e8;
     }
+
+    .section-title.pink { color: #e20088; }
+
+    /* ── Resume card ── */
     .resume-card {
       display: flex;
       gap: 2rem;
       background-color: #fff;
       padding: 2rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      flex-wrap: wrap;
     }
+    .resume-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
     .resume-card-left {
-      flex: 0 0 260px;
+      flex: 0 0 220px;
       font-size: 0.95rem;
-      background-color: #e8e8e8;
+      background-color: #f0f0f0;
       border-radius: 10px;
-      padding: 1rem;
+      padding: 1.25rem;
       color: #333;
-      font-weight: 600;
     }
-    .resume-card-left .job-title {
+
+    .company-logo {
+      width: 72px;
+      height: auto;
+      object-fit: contain;
+      margin-bottom: 0.85rem;
       display: block;
-      margin: 0.5rem 0;
-      color: #111;
     }
+
+    .position-title { font-family: 'DM Sans', sans-serif;
+      color: #1338BE;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .job-date {
+      color: #1338BE;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .company-info {
+      font-weight: 600;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .company-info .location {
+      display: block;
+      font-weight: 400;
+      font-size: 0.85rem;
+      margin-top: 0.2rem;
+      color: #666;
+    }
+
+    .role-label {
+      font-style: italic;
+      font-size: 0.88rem;
+      color: #555;
+      margin-top: 0.4rem;
+    }
+
     .resume-card-right {
       flex: 1;
+      min-width: 220px;
       font-size: 0.95rem;
       color: #333;
-      line-height: 1.6;
+      line-height: 1.7;
     }
-    .skills-grid, .languages-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
+
+    .resume-card-right ul {
+      padding-left: 1.25rem;
+      margin: 0 0 1rem 0;
     }
-    .skill-card {
-      background-color: #ffffff;
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 1rem;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      border: 2px solid #ddd;
+
+    .resume-card-right ul li {
+      margin-bottom: 0.6rem;
     }
-    .section-header {
-      display: flex;
-      align-items: center;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #555;
-      margin-top: 3rem;
-    }
-    .section-header img {
-      width: 24px;
-      margin-right: 0.75rem;
-    }
+
+    /* ── Project buttons ── */
     .project-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
+      margin-top: 0.75rem;
     }
     .project-buttons a {
       background: linear-gradient(to right, #3b27e3, #e20088);
       color: white;
-      padding: 0.5rem 1rem;
+      padding: 0.45rem 1rem;
       border-radius: 8px;
-      font-size: 0.85rem;
+      font-size: 0.83rem;
       text-decoration: none;
       font-weight: 500;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      transition: background 0.3s ease, transform 0.2s ease;
+      transition: transform 0.2s ease;
     }
-    .project-buttons a:hover {
-      transform: scale(1.05);
+    .project-buttons a:hover { transform: scale(1.05); }
+
+    /* ── Skills ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #555;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      gap: 0.6rem;
+    }
+    .section-header img { width: 22px; height: 22px; }
+
+    .skills-grid, .languages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .skill-card {
+      background-color: #ffffff;
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      border: 1.5px solid #e0e0e0;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .skill-card:hover {
+      transform: translateY(-2px);
+      border-color: #6B46C1;
+    }
+
+    /* ── Responsive — Tablet ── */
+    @media (max-width: 900px) {
+      .resume-page { margin: 2rem auto; }
+      .gradient-text { font-family: 'DM Serif Display', serif; font-size: 2rem; }
+      .resume-card-left { flex: 0 0 180px; }
+    }
+
+    /* ── Responsive — Mobile ── */
+    @media (max-width: 600px) {
+      .resume-page { margin: 1.5rem auto; padding: 0 1rem; }
+      .gradient-text { font-family: 'DM Serif Display', serif; font-size: 1.75rem; }
+
+      .resume-header { flex-direction: column; align-items: flex-start; }
+      .btn-download { width: 100%; justify-content: center; }
+
+      .resume-card { flex-direction: column; padding: 1.25rem; gap: 1rem; }
+      .resume-card-left { flex: none; width: 100%; }
+
+      .section-title { font-family: 'DM Serif Display', serif; font-size: 1.25rem; }
+      .skills-grid, .languages-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── Landscape phone ── */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .resume-card { flex-direction: row; }
+      .resume-card-left { flex: 0 0 180px; }
     }
   </style>
 </head>
 <body>
+
   <header class="navbar">
     <div class="logo">Yoshiki Takeuchi</div>
-    <nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="main-nav">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="resume.html" class="nav-link">Resume</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="research.html" class="nav-link">Research</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="resume-page">
-    <div class="resume-header">
+
+    <!-- Header -->
+    <div class="resume-header reveal">
       <h1 class="gradient-text">Resume</h1>
-      <a href="Internship_Resume_Yoshiki_Takeuchi.pdf" class="btn-primary" download>
+      <a href="assets/docs/Internship_Resume_Yoshiki_Takeuchi.pdf" class="btn-download" download>
         📄 Download Resume
       </a>
     </div>
 
+    <!-- Internship Experience -->
     <section class="resume-section">
-        <h2 class="section-title">Internship Experience</h2>
-      
-        <div class="resume-card">
-          <div class="resume-card-left">
-              <img src="Micron-Logo.png" alt="Micron Logo" class="company-logo" style="width: 80px; height: auto; margin-bottom: 1rem; display: block;" />
-              <p class="position-title">Advanced Packaging Thinning Process Engineer Intern</p>
-              <span class="job-date">July 2025 – Aug 2025</span>
-              <p class="company-info">
-                Micron Technology<br/>
-                <span class="location">Taichung, Taiwan</span>
-              </p>
+      <h2 class="section-title">Internship Experience</h2>
+
+      <div class="resume-card reveal">
+        <div class="resume-card-left">
+          <img src="assets/images/Micron-Logo.png"alt="Micron Logo" class="company-logo" />
+          <p class="position-title">Advanced Packaging Thinning Process Engineer Intern</p>
+          <span class="job-date">July 2025 – Aug 2025</span>
+          <p class="company-info">
+            Micron Technology<br/>
+            <span class="location">Taichung, Taiwan</span>
+          </p>
+        </div>
+        <div class="resume-card-right">
+          <ul>
+            <li>Improved wafer uniformity and total thickness variation (TTV) for High Bandwidth Memory (HBM) packaging process by using Design of Experiment (DOE) with 25 blanket silicon wafers.</li>
+            <li>Conducted wafer correlation analysis using a correlation matrix to reduce incoming wafer noise and improve data consistency for CMP experiments.</li>
+            <li>Developed HBM process flow summary presentation for manager, showcasing Post-Wafer Fabrication (PWF), Advanced Packaging, and CMP expertise.</li>
+            <li>Enhanced wafer uniformity by <span data-count="41" data-prefix="0." data-suffix="%">0.41%</span> and reduced TTV by <span data-count="526" data-suffix=" Å">526 Å</span>, improving HBM wafer thinning process performance.</li>
+          </ul>
+          <div class="project-buttons">
+            <a href="Yoshiki Takeuchi Intern Project - CMP Swing Improvement.pdf" target="_blank">📽 View Project Presentation</a>
           </div>
-          <div class="resume-card-right">
-              <ul>
-                <li>Improved wafer uniformity and total thickness variation (TTV) for High Bandwidth Memory (HBM) packaging process by using Design of Experiment (DOE) with 25 blanket silicon wafers.</li>
-                <li>Conducted wafer correlation analysis using a correlation matrix to reduce incoming wafer noise and improve data consistency for CMP experiments.</li>
-                <li>Developed HBM process flow summary presentation for manager, showcasing Post-Wafer Fabrication (PWF), Advanced Packaging, and CMP expertise.</li>
-                <li>Enhanced wafer uniformity by 0.41% and reduced TTV by 526 Å, improving HBM wafer thinning process performance.</li>
-              </ul>
-              <div class="project-buttons">
-                <a href="Yoshiki Takeuchi Intern Project - CMP Swing Improvement.pdf" target="_blank">📽 View Project Presentation</a>
-                
-              </div>
-      
-              
-          </div>
+        </div>
       </div>
-      
-        <div class="resume-card">
-            <div class="resume-card-left">
-                <img src="Tsmc.svg.png" alt="TSMC Logo" class="company-logo" style="width: 80px; height: auto; margin-bottom: 1rem; display: block;" />
-                <p class="position-title">Process Integration Engineer Intern</p>
-                <span class="job-date">June 2024 – Aug 2024</span>
-                <p class="company-info">
-                    Taiwan Semiconductor Manufacturing Company Limited<br/>
-                  <span class="location">Taichung, Taiwan</span>
-                </p>
-            </div>
-          <div class="resume-card-right">
-            <ul>
-              <li>Learned N28 technology, analyzing FEOL and BEOL process flows to deepen understanding of semiconductor fabrication and support process optimization efforts.</li>
-              <li>Conducted an in-depth MRAM case study, revealing critical insights into the temperature-dependent lowering of the coercive field and plasma-induced MRAM magnetic tunneling junctions to advance memory technology innovation.</li>
-              <li>Gained expertise in metal gate and high-k dielectric technologies, enhancing semiconductor process development.</li>
-              <li>Enhanced expertise in semiconductor fabrication processes during internship, including Chemical Mechanical Planarization (CMP), Chemical Vapor Deposition (CVD), Physical Vapor Deposition (PVD), Wet and Dry Etching, and Lithography.</li>
-            </ul>
-          </div>
+
+      <div class="resume-card reveal">
+        <div class="resume-card-left">
+          <img src="assets/images/Tsmc.svg.png"lt="TSMC Logo" class="company-logo" />
+          <p class="position-title">Process Integration Engineer Intern</p>
+          <span class="job-date">June 2024 – Aug 2024</span>
+          <p class="company-info">
+            Taiwan Semiconductor Manufacturing Company<br/>
+            <span class="location">Taichung, Taiwan</span>
+          </p>
         </div>
-
-        <div class="resume-card">
-            <div class="resume-card-left">
-                <img src="Tsmc.svg.png" alt="TSMC Logo" class="company-logo" style="width: 80px; height: auto; margin-bottom: 1rem; display: block;" />
-                <p class="position-title">Intelligent Manufacturing Engineer Intern</p>
-                <span class="job-date">July 2023 – Aug 2023</span>
-                <p class="company-info">
-                    Taiwan Semiconductor Manufacturing Company Limited<br/>
-                  <span class="location">Taichung, Taiwan</span>
-                </p>
-            </div>
-          <div class="resume-card-right">
-            <ul>
-              <li>Engineered a Python-driven Markov Chain model that reduced wafer queue times by 28 percent, significantly enhancing production efficiency.</li>
-              <li>Initiated and led the “Auto Target” project, which improved production processes for product N28 eFlash technology , reducing cycle times by 0.1 days.</li>
-              <li>Gained expertise in Automated Material Handling System (AMHS) operations, maintaining high standards in a clean room environment.</li>
-              <li>Assisted manager with Japanese translation and communication between Japanese-speaking employees.</li>
-            </ul>
-          </div>
+        <div class="resume-card-right">
+          <ul>
+            <li>Learned N28 technology, analyzing FEOL and BEOL process flows to deepen understanding of semiconductor fabrication and support process optimization efforts.</li>
+            <li>Conducted an in-depth MRAM case study, revealing critical insights into the temperature-dependent lowering of the coercive field and plasma-induced MRAM magnetic tunneling junctions to advance memory technology innovation.</li>
+            <li>Gained expertise in metal gate and high-k dielectric technologies, enhancing semiconductor process development.</li>
+            <li>Enhanced expertise in semiconductor fabrication processes including CMP, CVD, PVD, Wet and Dry Etching, and Lithography.</li>
+          </ul>
         </div>
-      </section>
-      
-      <style>
-        .position-title {
-          color: #1338BE;
-          font-weight: 700;
-          margin-bottom: 0.25rem;
-        }
-        .job-date {
-          color: #1338BE;
-          font-size: 0.9rem;
-          display: block;
-          margin-bottom: 0.75rem;
-        }
-        .company-info {
-          font-weight: 600;
-          line-height: 1.6;
-          margin: 0;
-        }
-        .company-info .location {
-          display: block;
-          font-weight: 400;
-          font-size: 0.95rem;
-          margin-top: 0.25rem;
-        }
-        .company-logo {
-          width: 48px;
-          height: 48px;
-          object-fit: contain;
-          margin-bottom: 0.8rem;
-          display: block;
-        }
-    </style>
-      
+      </div>
 
-
-      <section class="resume-section">
-        <h2 class="section-title">Education</h2>
-      
-        <div class="resume-card">
-          <div class="resume-card-left">
-            <img src="uiuc.png" alt="TAMU Logo" class="company-logo large" />
-            <p class="position-title">Master of Engineering in Electrical and Computer Engineering</p>
-            <span class="job-date">2026 – 2028</span>
-            <p class="company-info">
-              University of Illinois Urbana-Champaign<br/>
-              <span class="location">Champaign, IL</span>
-            </p>
-          </div>
-          <div class="resume-card-right">
-            <ul>
-              <li>To be added.</li>
-            </ul>
-          </div>
+      <div class="resume-card reveal">
+        <div class="resume-card-left">
+          <img src="assets/images/Tsmc.svg.png"alt="TSMC Logo" class="company-logo" />
+          <p class="position-title">Intelligent Manufacturing Engineer Intern</p>
+          <span class="job-date">July 2023 – Aug 2023</span>
+          <p class="company-info">
+            Taiwan Semiconductor Manufacturing Company<br/>
+            <span class="location">Taichung, Taiwan</span>
+          </p>
         </div>
-
-        <div class="resume-card">
-            <div class="resume-card-left">
-              <img src="Purdue_Boilermakers_logo.svg.png" alt="Purdue Logo" class="company-logo large" />
-              <p class="position-title">Bachelor of Science in Electrical and Computer Engineering</p>
-              <span class="job-date">2021 – 2025</span>
-              <p class="company-info">Purdue University<br/>
-                <span class="location">West Lafayette, IN</span>
-              </p>
-            </div>
-            <div class="resume-card-right">
-              <ul>
-                <li>Coursework: Digital System Design, Linear Circuit Analysis, Verilog on FPGA, Microprocessor Systems, Semiconductor Devices, Nanoelectronics, Electromagnetics, Electrical Engineering Fundamentals. </li>
-                <li>Research focus on Semiconductor Frabrication</li>
-                <li>Served as Undergraduate Teaching Assistant for “ENGR131/132”</li>
-              </ul>
-            </div>
-          </div>
-      </section>
-      
-
-      <section class="resume-section">
-        <h2 class="section-title" style="color:#e20088">Leadership & Extracurricular</h2>
-      
-        <div class="resume-card">
-          <div class="resume-card-left">
-            <p class="job-date">2023 – 2024</p>
-            <p class="position-title">Alpha Phi Omega - National Service Fraternity</p>
-            <p class="company-info">West Lafayette, IN</p>
-            <p class="role-label">Active Member</p>
-          </div>
-          <div class="resume-card-right">
-            <ul>
-                <li>Completed 35 hours of service per semester by participating in campus and local community service projects, while organizing and coordinating Fall 2023 pledge service events as a Pledge Trainer Buddy.</li>
-            </ul>
-          </div>
+        <div class="resume-card-right">
+          <ul>
+            <li>Engineered a Python-driven Markov Chain model that reduced wafer queue times by <span data-count="28" data-suffix="%">28%</span>, significantly enhancing production efficiency.</li>
+            <li>Initiated and led the "Auto Target" project, improving production processes for N28 eFlash technology and reducing cycle times by <span data-count="1" data-prefix="0." data-suffix=" days">0.1 days</span>.</li>
+            <li>Gained expertise in Automated Material Handling System (AMHS) operations, maintaining high standards in a clean room environment.</li>
+            <li>Assisted manager with Japanese translation and communication between Japanese-speaking employees.</li>
+          </ul>
         </div>
-      
-        <div class="resume-card">
-          <div class="resume-card-left">
-            <p class="job-date">2021 – 2022</p>
-            <p class="position-title">Purdue Philharmonic Orchestra</p>
-            <p class="company-info">West Lafayette, IN</p>
-            <p class="role-label">Second Violinist</p>
-          </div>
-          <div class="resume-card-right">
-            <ul>
-                <li>Participated in the ”Let Music Alive” program in Europe during the summer of 2022 with the Purdue orchestra, performing in multiple concerts and demonstrating proficiency and collaboration in a large ensemble setting.</li>
-            </ul>
-            
-          </div>
-        </div>
-      </section>
-      
-      <style>
-        .job-date {
-          color: #1338BE;
-          font-weight: 600;
-          margin-bottom: 0.4rem;
-        }
-        .position-title {
-          font-weight: 600;
-          margin-bottom: 0.2rem;
-        }
-        .company-info {
-          font-weight: 400;
-          font-size: 0.95rem;
-          margin: 0.2rem 0;
-        }
-        .role-label {
-          font-style: italic;
-          font-size: 0.95rem;
-          color: #444;
-          margin-top: 0.2rem;
-        }
-      </style>
+      </div>
+    </section>
 
+    <!-- Education -->
     <section class="resume-section">
-      <h2 class="section-title" style="color:#e20088">Technical Skills</h2>
+      <h2 class="section-title">Education</h2>
 
-      <div class="section-header"><img src="programming_language_logo.png" alt="Skills" /> Programming Languages</div>
+      <div class="resume-card reveal">
+        <div class="resume-card-left">
+          <img src="assets/images/uiuc.png"alt="UIUC Logo" class="company-logo" />
+          <p class="position-title">Master of Engineering in Electrical and Computer Engineering</p>
+          <span class="job-date">2026 – 2028</span>
+          <p class="company-info">
+            University of Illinois Urbana-Champaign<br/>
+            <span class="location">Champaign, IL</span>
+          </p>
+        </div>
+        <div class="resume-card-right">
+          <ul>
+            <li>To be added.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="resume-card reveal">
+        <div class="resume-card-left">
+          <img src="assets/images/Purdue_Boilermakers_logo.svg.png"alt="Purdue Logo" class="company-logo" />
+          <p class="position-title">Bachelor of Science in Electrical and Computer Engineering</p>
+          <span class="job-date">2021 – 2025</span>
+          <p class="company-info">
+            Purdue University<br/>
+            <span class="location">West Lafayette, IN</span>
+          </p>
+        </div>
+        <div class="resume-card-right">
+          <ul>
+            <li>Coursework: Digital System Design, Linear Circuit Analysis, Verilog on FPGA, Microprocessor Systems, Semiconductor Devices, Nanoelectronics, Electromagnetics, Electrical Engineering Fundamentals.</li>
+            <li>Research focus on Semiconductor Fabrication.</li>
+            <li>Served as Undergraduate Teaching Assistant for ENGR131/132.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership -->
+    <section class="resume-section">
+      <h2 class="section-title pink">Leadership & Extracurricular</h2>
+
+      <div class="resume-card reveal">
+        <div class="resume-card-left">
+          <span class="job-date">2023 – 2024</span>
+          <p class="position-title">Alpha Phi Omega — National Service Fraternity</p>
+          <p class="company-info">West Lafayette, IN</p>
+          <p class="role-label">Active Member</p>
+        </div>
+        <div class="resume-card-right">
+          <ul>
+            <li>Completed <span data-count="35" data-suffix=" hours">35 hours</span> of service per semester by participating in campus and local community service projects, while organizing and coordinating Fall 2023 pledge service events as a Pledge Trainer Buddy.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="resume-card reveal">
+        <div class="resume-card-left">
+          <span class="job-date">2021 – 2022</span>
+          <p class="position-title">Purdue Philharmonic Orchestra</p>
+          <p class="company-info">West Lafayette, IN</p>
+          <p class="role-label">Second Violinist</p>
+        </div>
+        <div class="resume-card-right">
+          <ul>
+            <li>Participated in the "Let Music Alive" program in Europe during the summer of 2022 with the Purdue orchestra, performing in multiple concerts and demonstrating proficiency and collaboration in a large ensemble setting.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="resume-section reveal">
+      <h2 class="section-title pink">Technical Skills</h2>
+
+      <div class="section-header">
+        <img src="assets/images/programming_language_logo.png" alt="Programming" /> Programming Languages
+
+      </div>
       <div class="skills-grid">
         <div class="skill-card">Python</div>
-        <div class="skill-card">C Programming</div>
+        <div class="skill-card">C </div>
         <div class="skill-card">MATLAB</div>
         <div class="skill-card">SystemVerilog</div>
         <div class="skill-card">Assembly</div>
         <div class="skill-card">Linux</div>
       </div>
 
-      <div class="section-header"><img src="language_logo.png" alt="Languages" /> Languages</div>
+      <div class="section-header">
+        <img src="assets/images/language_logo.png"alt="Languages" /> Languages
+      </div>
       <div class="languages-grid">
         <div class="skill-card">English</div>
         <div class="skill-card">Chinese</div>
         <div class="skill-card">Japanese</div>
-        
       </div>
 
-      <div class="section-header"><img src="tools_logo.svg" alt="Languages" /> Software & Tools</div>
+      <div class="section-header">
+        <img src="assets/images/tools_logo.svg"alt="Tools" /> Software & Tools
+      </div>
       <div class="languages-grid">
         <div class="skill-card">Microsoft Office</div>
         <div class="skill-card">LTspice</div>
@@ -428,13 +460,13 @@
         <div class="skill-card">PCB Layout</div>
         <div class="skill-card">Oscilloscopes</div>
         <div class="skill-card">Digital Multimeters</div>
-        <div class="skill-card"> Power Supply</div>
-
-        
+        <div class="skill-card">Power Supply</div>
       </div>
     </section>
+
   </main>
+
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
-
-

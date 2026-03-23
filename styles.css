@@ -1,0 +1,415 @@
+/* ============================================================
+   GLOBAL RESET
+   ============================================================ */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html { scroll-behavior: smooth; }
+  
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  
+  /* ============================================================
+     NAVBAR
+     ============================================================ */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: grey;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar a:hover { color: #3b27e3; }
+  
+  .navbar a.active {
+    color: #3b27e3;
+    font-weight: 700;
+  }
+  
+  .navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0; height: 2px;
+    background: #3b27e3;
+    transition: width 0.25s ease;
+  }
+  .navbar a:hover::after,
+  .navbar a.active::after { width: 100%; }
+  
+  /* Hamburger */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 24px; height: 2px;
+    background: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 3rem;
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+  
+  .hero-text { max-width: 600px; flex: 1; }
+  
+  .hero-text h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    margin-top: 0.8rem;
+    color: #333;
+    line-height: 1.15;
+  }
+  
+  .hero-text h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.15rem;
+    color: #666;
+    font-weight: 400;
+    margin: 1rem 0;
+    min-height: 1.8rem;
+  }
+  
+  .horizontal-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 3rem;
+    background-color: #f5f5f5;
+    flex-wrap: wrap;
+  }
+  
+  .hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    min-width: 220px;
+  }
+  
+  .hero-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 20px;
+    display: block;
+  }
+  
+  .hero-image .gradient-box {
+    background: linear-gradient(to bottom right, #dcdcdc, #f2f2f2);
+    padding: 2rem;
+    border-radius: 40px;
+  }
+  
+  .hero-image .image-box {
+    background-color: #e8e8e8;
+    border-radius: 30px;
+    padding: 1rem;
+    width: 100%;
+    max-width: 380px;
+  }
+  
+  .hero-image .image-box img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-8px); }
+  }
+  
+  
+  /* ============================================================
+     TAGS
+     ============================================================ */
+  .tags {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  
+  .tags span {
+    background-color: #bbb;
+    color: white;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    text-transform: uppercase;
+  }
+  
+  
+  /* ============================================================
+     BUTTONS
+     ============================================================ */
+  .buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    padding: 0.8rem 1.8rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  }
+  
+  .btn-primary {
+    background-color: #555;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .btn-outline {
+    border: 2px solid #555;
+    color: #555;
+    background-color: transparent;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  
+  /* ============================================================
+     GRADIENT TEXT
+     ============================================================ */
+  .gradient-text {
+    background: linear-gradient(to right, #5e5e5e, #7a7a7a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .gradient-text-alt {
+    background: linear-gradient(to right, #888888, #aaaaaa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  
+  /* ============================================================
+     ABOUT SECTION
+     ============================================================ */
+  .about {
+    background-color: #f2f2f2;
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+  
+  .about-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.6rem;
+    font-weight: 400;
+    background: linear-gradient(to right, #5e5e5e, #8f8f8f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 2.5rem;
+  }
+  
+  .about-text {
+    max-width: 750px;
+    margin: 0 auto 3rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+  }
+  
+  .about-text p { margin-bottom: 1.5rem; }
+  
+  
+  /* ============================================================
+     SOCIAL ICONS
+     ============================================================ */
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .social-icons img {
+    width: 32px; height: 32px;
+    filter: grayscale(100%) contrast(120%);
+    transition: filter 0.3s ease;
+  }
+  .social-icons img:hover { filter: none; }
+  
+  
+  /* ============================================================
+     ANIMATIONS
+     ============================================================ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .reveal-stagger.visible > *:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:0s; }
+  .reveal-stagger.visible > *:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:0.12s; }
+  .reveal-stagger.visible > *:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:0.24s; }
+  
+  .typed-word {
+    border-right: 2px solid #6B46C1;
+    padding-right: 3px;
+    animation: blink 0.75s step-end infinite;
+    font-style: italic;
+  }
+  @keyframes blink { 50% { border-color: transparent; } }
+  
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  
+  /* ============================================================
+     RESPONSIVE — TABLET (max 900px)
+     ============================================================ */
+  @media (max-width: 900px) {
+    .navbar { padding: 1.25rem 2rem; }
+    .horizontal-hero { flex-direction: column; text-align: center; padding: 3rem 2rem; }
+    .hero-text { max-width: 100%; }
+    .hero-text h1 { font-size: 2.4rem; }
+    .hero-image { max-width: 320px; margin: 0 auto; }
+    .buttons { justify-content: center; }
+    .tags { justify-content: center; }
+    .about { padding: 3.5rem 1.5rem; }
+    .about-title { font-size: 2rem; }
+  }
+  
+  
+  /* ============================================================
+     RESPONSIVE — MOBILE (max 600px)
+     ============================================================ */
+  @media (max-width: 600px) {
+    .navbar { padding: 1rem 1.5rem; }
+    .nav-toggle { display: flex; }
+  
+    .navbar nav {
+      display: none;
+      position: absolute;
+      top: 64px; left: 0; right: 0;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 1rem 0;
+      z-index: 99;
+    }
+    .navbar nav.open { display: block; }
+    .navbar ul { flex-direction: column; gap: 0; align-items: center; }
+    .navbar ul li { width: 100%; text-align: center; }
+    .navbar a { display: block; padding: 0.85rem 1rem; font-size: 1rem; }
+  
+    .horizontal-hero { flex-direction: column; text-align: center; padding: 2.5rem 1.25rem; gap: 1.5rem; }
+    .hero-text h1 { font-size: 2rem; }
+    .hero-text h2 { font-size: 1rem; }
+    .hero-image { max-width: 260px; }
+    .hero-image .image-box img { max-height: 300px; }
+    .buttons { justify-content: center; gap: 0.75rem; }
+    .btn, .btn-primary, .btn-outline { padding: 0.65rem 1.25rem; font-size: 0.9rem; }
+    .about { padding: 3rem 1.25rem; }
+    .about-title { font-size: 1.8rem; }
+    .about-text { font-size: 0.95rem; }
+  }
+  
+  
+  /* ============================================================
+     RESPONSIVE — LANDSCAPE PHONE
+     ============================================================ */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .horizontal-hero { flex-direction: row; padding: 2rem; gap: 1.5rem; text-align: left; }
+    .hero-text h1 { font-size: 1.8rem; }
+    .hero-text h2 { font-size: 0.95rem; }
+    .hero-image { max-width: 200px; }
+    .hero-image .image-box img { max-height: 200px; }
+    .tags { justify-content: flex-start; }
+    .buttons { justify-content: flex-start; }
+  }
